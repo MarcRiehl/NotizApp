@@ -7,8 +7,8 @@ def show_notes():
     for note in notes:
         print(f"Title: {note['title']}, Text: {note['text']}")
 
-def add_note():
-    pass 
+def add_note(title, text):
+    notes.append({"title" : title, "text": text})
 
 def delete_note():
     pass 
@@ -16,7 +16,7 @@ def delete_note():
 def update_note():
     pass
 
-# add_note()
+add_note( "Freizeit", "heute nicht")
 # delete_note()
 # update_note()
 show_notes()
