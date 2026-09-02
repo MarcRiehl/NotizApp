@@ -10,13 +10,22 @@ def show_notes():
 def add_note(title, text):
     notes.append({"title" : title, "text": text})
 
-def delete_note():
-    pass 
+def delete_note(title, text):
+    notes.remove({"title" : title, "text": text})
 
-def update_note():
-    pass
+def update_note(old_title, new_title=None, new_text=None):
+    for note in notes:
+        if note["title"] == old_title:
 
-add_note( "Freizeit", "heute nicht")
-# delete_note()
-# update_note()
+            if new_title is not None:
+                note["title"] = new_title
+
+            if new_text is not None:
+                note["text"] = new_text
+
+            return
+
+add_note("Freizeit", "heute nicht")
+delete_note("Einkauf", "Milch, Brot, Eier")
+update_note("Arbeit", new_title="Job", new_text="Backendcall um 14")
 show_notes()
