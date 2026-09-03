@@ -12,8 +12,10 @@ def add_note():
     text = input("Gib einen Text ein: ")
     notes.append({"title" : title, "text": text})
 
-def delete_note(title, text):
-    notes.remove({"title" : title, "text": text})
+def delete_note(title):
+    for note in notes:
+        if note["title"] == title:
+            notes.remove(note)
 
 def update_note(old_title, new_title=None, new_text=None):
     for note in notes:
@@ -28,6 +30,6 @@ def update_note(old_title, new_title=None, new_text=None):
             return
 
 add_note()
-delete_note("Einkauf", "Milch, Brot, Eier")
+delete_note("Einkauf")
 update_note("Arbeit", new_title="Job", new_text="Backendcall um 14")
 show_notes()
