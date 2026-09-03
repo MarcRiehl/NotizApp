@@ -7,7 +7,9 @@ def show_notes():
     for note in notes:
         print(f"Title: {note['title']}, Text: {note['text']}")
 
-def add_note(title, text):
+def add_note():
+    title = input("Gib einen Titel ein: ")
+    text = input("Gib einen Text ein: ")
     notes.append({"title" : title, "text": text})
 
 def delete_note(title, text):
@@ -25,7 +27,7 @@ def update_note(old_title, new_title=None, new_text=None):
 
             return
 
-add_note("Freizeit", "heute nicht")
+add_note()
 delete_note("Einkauf", "Milch, Brot, Eier")
 update_note("Arbeit", new_title="Job", new_text="Backendcall um 14")
 show_notes()
